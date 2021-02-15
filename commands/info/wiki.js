@@ -3,15 +3,15 @@ const wiki = require('wikipedia-tldr');
 
 module.exports = {
   name: "wiki",
-  aliases: [],
-  memberName: "wiki",
-  description: "wiki info",
+  aliases: ["вики", "расскажи", "просвети", "что такое"],
+  memberName: "Wiki | Вики",
+  description: "Забыл что такое вагина? Я могу напомнить использовав Википедию.",
 
   async execute(message, args) {
     let img = null;
     const search = args.join(" ");
     if (!search) {
-      return message.reply("input object to search");
+      return message.reply("хорошо, а теперь давай еще раз.\n Но только в этот раз введи что ищешь, даунила.");
     }
 
     await wiki(search, 'ru').then(result => {
@@ -23,21 +23,19 @@ module.exports = {
 
     wiki(search, 'ru').then(result => {
       if (!img) {
-        img = "https://cdn.discordapp.com/attachments/779330454506963034/782414891453644840/XOsX.gif";
+        img = "https://cdn.discordapp.com/attachments/740430038041886750/810856332898992148/Wikipedia.png";
       }
       let wikiEmbed = new MessageEmbed()
-        //.setAuthor(`${client.user.username}`, `${client.user.avatar}`)
         .setTitle(result.title)
+        .setURL(`https://ru.wikipedia.org/wiki/${result.title}`.replace(" ", "_"))
         .setDescription(result.extract)
-        // .addField(`${result.title}`, `\n${result.extract}`, false)
         .setThumbnail(img)
-        .setColor("#ff8325")
-        .setFooter("");
+        .setColor("#ffa4c0")
 
       message.channel.send(wikiEmbed);
 
     }).catch(err => {
-      message.reply("No source");
+      message.reply("все хуйня, давай по новой.");
     })
   }
-};
+}
