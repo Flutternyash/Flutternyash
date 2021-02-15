@@ -2,7 +2,6 @@ const {Client, Collection} = require("discord.js");
 const {group} = require("./util/group");
 const {readdirSync} = require("fs");
 const config = require("./config.json");
-const {ADMINISTRATOR} = require("./util/options.json")
 
 const client = new Client({disableMentions: "everyone"});
 client.db = require("./util/db");
@@ -39,7 +38,7 @@ client.on("ready", () => {
     }).then();
     i++;
   }, 50000)
-  client.generateInvite(["ADMINISTRATOR"]).then((link) => {
+  client.generateInvite({permissions: "ADMINISTRATOR"}).then((link) => {
     console.log(link);
   })
 });
