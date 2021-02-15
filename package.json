@@ -1,0 +1,28 @@
+{
+  "name": "pony",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flutternyash/Flutternyash.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "better-sqlite3": "^7.1.2",
+    "discord.js": "^12.5.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.2.7",
+    "openweather-apis": "^4.4.1",
+    "wikipedia-tldr": "^1.0.3",
+    "yt-search": "^2.5.0",
+    "ytdl-core": "^4.0.5"
+  }
+}
