@@ -29,7 +29,7 @@ module.exports = {
       }
       let wikiEmbed = new MessageEmbed()
         .setTitle(result.title)
-        .setURL(`https://ru.wikipedia.org/wiki/${result.title}`.replace(" ", "_"))
+        .setURL(encodeURI(`https://ru.wikipedia.org/wiki/${result.title}`.replace(/\s+/, "_")))
         .setDescription(result.extract)
         .setThumbnail(img)
         .setColor("#ffa4c0")
